@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buttons</title>
+<style>
+    .container {
+        display: inline-block;
+        position: relative;
+    }
+
+    .btn-container {
+        display: flex;
+        align-items: stretch;
+    }
+
+    .btn {
+        background-color: #007bff;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+    }
+
+    .btn.right {
+        margin-left: -4px; 
+        position: relative;
+        left: 0;
+        transition: all 0.3s ease;
+    }
+
+    .btn.right.move {
+        left: 30px;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="btn-container">
+            <div class="btn" id="leftBtn">Button 1</div>
+            <div class="btn right" id="rightBtn">Button 2</div>
+        </div>
+    </div>
+
+    <script>
+        const rightBtn = document.getElementById('rightBtn');
+
+        document.getElementById('leftBtn').addEventListener('mouseenter', () => {
+            rightBtn.classList.add('move');
+        });
+
+        document.getElementById('leftBtn').addEventListener('mouseleave', () => {
+            rightBtn.classList.remove('move');
+        });
+
+        rightBtn.addEventListener('mouseenter', () => {
+            rightBtn.classList.add('move');
+        });
+
+        rightBtn.addEventListener('mouseleave', () => {
+            rightBtn.classList.remove('move');
+        });
+    </script>
+</body>
+</html>
